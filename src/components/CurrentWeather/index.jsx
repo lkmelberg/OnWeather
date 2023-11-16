@@ -1,31 +1,34 @@
 import React from "react";
 import { FetchWeatherData } from "../FetchWeatherData";
+import { Text, Flex } from "@chakra-ui/react";
+import { emoji } from "../Emoji";
 
 export function CurrentWeather({ lat, long }) {
   const currentWeatherData = FetchWeatherData(lat, long);
 
-  const formatTo24Hour = (date) => {
-    const options = {
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-      hour12: false,
-    };
-    return new Date(date).toLocaleTimeString(undefined, options);
-  };
-
   return (
     <div>
-      <h2>Current Weather</h2>
       {currentWeatherData ? (
         <div>
-          <p>
-            Temperature: {currentWeatherData.current.temperature2m.toFixed(0)}C
-          </p>
-          <p>
-            Feels Like:{" "}
-            {currentWeatherData.current.apparentTemperature.toFixed(0)}C
-          </p>
+          <Flex justifyContent="center" gap=".5rem" alignItems="center">
+            <Text fontWeight="500" color="#012a4c">
+              Temperature:{" "}
+            </Text>
+            <Text color="#005b91" fontSize="1.5em">
+              {" "}
+              {currentWeatherData.current.temperature2m.toFixed(0)}°C
+            </Text>
+          </Flex>
+          <div>{emoji(currentWeatherData.current.temperature2m)}</div>
+          <Flex justifyContent="center" gap=".5rem" alignItems="center">
+            <Text fontWeight="500" color="#012a4c">
+              Feels Like:
+            </Text>
+            <Text color="#005b91" fontSize="1.5em">
+              {currentWeatherData.current.apparentTemperature.toFixed(0)}°C
+            </Text>
+          </Flex>
+          <div>{emoji(currentWeatherData.current.apparentTemperature)}</div>
         </div>
       ) : (
         <p>Loading...</p>

@@ -1,6 +1,6 @@
 import React from "react";
 import { SwitchTabs } from "../../components/SwitchTabs";
-
+import { Text, Box } from "@chakra-ui/react";
 export const MainContent = () => {
   const path = window.location.pathname;
   let latitude, longitude, city;
@@ -24,10 +24,12 @@ export const MainContent = () => {
   }
 
   return (
-    <div>
-      <h1>{city}</h1>
+    <Box borderTop="2px" borderColor="#005b91">
+      <Text padding="2rem" color="#012a4c" fontSize="3rem">
+        {city}
+      </Text>
       <SwitchTabs />
-    </div>
+    </Box>
   );
 };
 
