@@ -1,5 +1,4 @@
 import React from "react";
-
 import { fetchWeatherApi } from "openmeteo";
 
 export async function WeatherInfo(lat: number, long: number) {

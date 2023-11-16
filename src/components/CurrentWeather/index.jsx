@@ -1,28 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { WeatherInfo } from "../../api";
+import React from "react";
+import { FetchWeatherData } from "../FetchWeatherData";
 
 export function CurrentWeather({ lat, long }) {
-  const [weatherData, setWeatherData] = useState(null);
+  const currentWeatherData = FetchWeatherData(lat, long);
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await WeatherInfo(lat, long);
-      setWeatherData(data);
-    }
-
-    fetchData();
-  }, [lat, long]);
+  const formatTo24Hour = (date) => {
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: false,
+    };
+    return new Date(date).toLocaleTimeString(undefined, options);
+  };
 
   return (
     <div>
-      <h2>Current Weather: </h2>
-      {weatherData && (
+      <h2>Current Weather</h2>
+      {currentWeatherData ? (
         <div>
-          <p>Temperature: {weatherData.current.temperature2m.toFixed(0)}C</p>
           <p>
-            Feels Like: {weatherData.current.apparentTemperature.toFixed(0)}C
+            Temperature: {currentWeatherData.current.temperature2m.toFixed(0)}C
+          </p>
+          <p>
+            Feels Like:{" "}
+            {currentWeatherData.current.apparentTemperature.toFixed(0)}C
           </p>
         </div>
+      ) : (
+        <p>Loading...</p>
       )}
     </div>
   );
