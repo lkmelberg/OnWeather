@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { WeatherInfo } from "../../api";
 
-export function CurrentWeather({ lat, long }) {
+export function TwodaysWeather({ lat, long }) {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {

@@ -1,15 +1,9 @@
 import React from "react";
-import { CurrentWeather } from "../../../components/CurrentWeather";
 
-export function Stavanger() {
-  const latitude = 58.9701;
-  const longitude = 5.7333;
-  const stavangerCurrent = CurrentWeather(latitude, longitude);
+import { MainContent } from "../../MainContent";
 
-  return (
-    <div>
-      <h1>Stavanger</h1>
-      {stavangerCurrent}
-    </div>
-  );
-}
+export const Stavanger = () => {
+  return <MainContent />;
+};
+
+export default Stavanger;

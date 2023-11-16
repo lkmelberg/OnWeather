@@ -16,7 +16,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">OnWeather</span>
-            <img className="h-5 w-auto" src={OnWeather} alt="OnWeather Logo" />
+            <img className="h-4 w-auto" src={OnWeather} alt="OnWeather Logo" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -31,7 +31,7 @@ export function Header() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Link
             className="text-sm font-semibold leading-6 text-gray-900"
-            to="/">
+            to="/Trondheim">
             Trondheim
           </Link>
           <Link
@@ -58,9 +58,9 @@ export function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
+                className="h-4 w-auto"
+                src={OnWeather}
+                alt="OnWeather Logo"
               />
             </a>
             <button

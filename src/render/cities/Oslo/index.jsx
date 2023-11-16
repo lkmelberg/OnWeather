@@ -1,5 +1,7 @@
 import React from "react";
+import { MainContent } from "../../MainContent";
 
-export function Oslo() {
-  return <div>This is Oslo </div>;
-}
+export const Oslo = () => {
+  return <MainContent />;
+};
+export default Oslo;
