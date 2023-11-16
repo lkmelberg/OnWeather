@@ -27,10 +27,14 @@ export function SwitchTabs() {
 
   return (
     <>
-      <Tabs variant="soft-rounded" colorScheme="green">
-        <TabList justifyContent="center" margin="1rem">
-          <Tab>Currently</Tab>
-          <Tab>Today</Tab>
+      <Tabs isFitted variant="enclosed">
+        <TabList mb="1em">
+          <Tab color="#005b91" fontWeight="bold">
+            Currently
+          </Tab>
+          <Tab color="#005b91" fontWeight="bold">
+            Today
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>

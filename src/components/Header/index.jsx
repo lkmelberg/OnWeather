@@ -16,7 +16,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">OnWeather</span>
-            <img className="h-4 w-auto" src={OnWeather} alt="OnWeather Logo" />
+            <img className="h-8 w-auto" src={OnWeather} alt="OnWeather Logo" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -25,23 +25,23 @@ export function Header() {
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}>
             <span className="sr-only">Open mobile menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" color="#005b91" />
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Link
-            className="text-sm font-semibold leading-6 text-gray-900"
-            to="/Trondheim">
+            className="text-md font-semibold leading-6 text-[#012a4c]"
+            to="/">
             Trondheim
           </Link>
           <Link
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-md font-semibold leading-6 text-[#012a4c]"
             to="/Oslo">
             Oslo
           </Link>
 
           <Link
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="text-md font-semibold leading-6 text-[#012a4c]"
             to="/Stavanger">
             Stavanger
           </Link>
@@ -58,7 +58,7 @@ export function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-                className="h-4 w-auto"
+                className="h-8 w-auto"
                 src={OnWeather}
                 alt="OnWeather Logo"
               />
@@ -75,17 +75,17 @@ export function Header() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Link
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50 text-[#005b91]"
                   to="/">
                   Trondheim
                 </Link>
                 <Link
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-[#005b91] hover:bg-gray-50"
                   to="/Oslo">
                   Oslo
                 </Link>
                 <Link
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-[#005b91] hover:bg-gray-50"
                   to="/Stavanger">
                   Stavanger
                 </Link>
