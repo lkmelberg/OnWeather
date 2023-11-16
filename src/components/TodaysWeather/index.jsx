@@ -1,29 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { WeatherInfo } from "../../api";
+import React, { useRef } from "react";
+import { FetchWeatherData } from "../FetchWeatherData";
+import Highcharts from "highcharts";
 
-export function TwodaysWeather({ lat, long }) {
-  const [weatherData, setWeatherData] = useState(null);
+export function TodaysWeather({ lat, long }) {
+  const chartRef = useRef(null);
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await WeatherInfo(lat, long);
-      setWeatherData(data);
-    }
+  // Fetch weather data using the provided function
+  const weatherData = FetchWeatherData(lat, long);
+  if (weatherData) {
+    // Extract time and temperature data from the weatherData object
+    const timeData = weatherData.hourly.time.slice(0, 24); // Limit to 24 hours
+    const temperatureData = weatherData.hourly.temperature2m.slice(0, 24); // Limit to 24 hours
 
-    fetchData();
-  }, [lat, long]);
+    // Create an array of [time, temperature] pairs
 
-  return (
-    <div>
-      <h2>Current Weather: </h2>
-      {weatherData && (
-        <div>
-          <p>Temperature: {weatherData.current.temperature2m.toFixed(0)}C</p>
-          <p>
-            Feels Like: {weatherData.current.apparentTemperature.toFixed(0)}C
-          </p>
-        </div>
-      )}
-    </div>
-  );
+    const chartData = timeData.map((time, index) => [
+      new Date(time).getTime(),
+      Math.round(temperatureData[index]),
+    ]);
+
+    // Create the Highcharts chart
+    Highcharts.chart(chartRef.current, {
+      chart: {
+        type: "line",
+      },
+      title: {
+        text: "Temperatures today",
+        style: {
+          color: "#012a4c",
+        },
+      },
+      xAxis: {
+        type: "datetime",
+      },
+      yAxis: {
+        title: {
+          text: "Temperature (°C)",
+        },
+      },
+      series: [
+        {
+          name: "Temperature",
+          data: chartData,
+          color: "#005b91",
+        },
+      ],
+    });
+  }
+  return <div ref={chartRef}></div>;
 }

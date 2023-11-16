@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { CurrentWeather } from "../CurrentWeather";
-import { TwodaysWeather } from "../TodaysWeather";
+import { TodaysWeather } from "../TodaysWeather";
 
 export function SwitchTabs() {
   const path = window.location.pathname;
@@ -28,8 +28,8 @@ export function SwitchTabs() {
   return (
     <>
       <Tabs variant="soft-rounded" colorScheme="green">
-        <TabList>
-          <Tab>Current</Tab>
+        <TabList justifyContent="center" margin="1rem">
+          <Tab>Currently</Tab>
           <Tab>Today</Tab>
         </TabList>
         <TabPanels>
@@ -37,7 +37,7 @@ export function SwitchTabs() {
             <CurrentWeather lat={latitude} long={longitude} />
           </TabPanel>
           <TabPanel>
-            <TwodaysWeather lat={latitude} long={longitude} />
+            <TodaysWeather lat={latitude} long={longitude} />
           </TabPanel>
         </TabPanels>
       </Tabs>
