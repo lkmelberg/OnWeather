@@ -1,16 +1,15 @@
-# OnWeather - DFØ Case
+# OnWeather Case
 
-## This is a case for an interview with DFØ
+## This is a case for a job interview
 
 ### Brief:
 
-Make a simplified weather service based on the DFØ locations and/or searchable locations. Visualize some relevant weather parameters. How many and how is up to you.
+Make a simplified weather service based on selected locations and/or searchable locations. Visualize some relevant weather parameters. How many and how is up to you.
 
 ### Requirements:
 
 Use React or Vue
 Get data from API https://open-meteo.com/
-Use colors from DFØs visual profile: https://profilveileder.dfo.no/
 
 # React + Vite
 
